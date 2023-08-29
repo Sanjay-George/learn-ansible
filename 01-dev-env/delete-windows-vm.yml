@@ -1,0 +1,63 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+
+
+    - set_fact:
+        count: "100"
+      run_once: yes
+
+    - name: Windows - Remove VM
+      azure_rm_virtualmachine:
+        resource_group: ansible
+        name: "vm-winweb{{ count }}"
+        state: absent
+
+    
+    - name: Windows - Remove network interface
+      azure_rm_networkinterface:
+        name: nic-winweb
+        resource_group: ansible
+        virtual_network: vnet-winweb
+        subnet_name: snet-winweb
+        security_group: nsg-winweb
+        state: absent
+
+    - name: Windows - Create Network Security Group
+      azure_rm_securitygroup:
+        resource_group: ansible
+        name: nsg-winweb
+        state: absent
+
+    - name: Windows - Create public IP address
+      azure_rm_publicipaddress:
+        resource_group: ansible
+        # allocation_method: Static
+        # domain_name: "vm-winweb{{ count }}"
+        name: pip-winweb
+        state: absent
+
+    - name: Windows - Remove subnet
+      azure_rm_subnet:
+        resource_group: ansible
+        name: snet-winweb
+        virtual_network: vnet-winweb
+        state: absent
+
+    - name: Windows - Remove virtual network
+      azure_rm_virtualnetwork:
+        resource_group: ansible
+        name: vnet-winweb
+        state: absent
+
+
+
+
+
+          
+
+
+
+  
