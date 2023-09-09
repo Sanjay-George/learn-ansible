@@ -24,4 +24,5 @@ RUN cd /usr/src; \
 
 RUN pip3 install --upgrade pip; \
     pip3 install "ansible==2.9.12"; \
+    pip3 install ansible-lint; \
     pip3 install ansible[azure]

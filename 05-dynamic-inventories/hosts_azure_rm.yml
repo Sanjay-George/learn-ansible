@@ -1,0 +1,16 @@
+plugin: azure_rm
+include_vm_resource_groups:
+  - ansible
+auth_source: auto
+plain_host_names: yes
+
+conditional_groups:
+  web: tags.id == '59'
+  db: tags.id == '2'
+
+# keyed_groups:
+#   - key: tags.id
+
+
+# Read more about conditional and keyed groups here:
+# https://docs.ansible.com/ansible/latest/collections/azure/azcollection/azure_rm_inventory.html

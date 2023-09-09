@@ -1,0 +1,32 @@
+---
+- hosts: web
+
+  vars:
+    ansible_user: ansible
+    ansible_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          33333538383062326363393430346663356138326162613763333761316632393562376564323463
+          3838303530343038346466306133303634343164633764650a353265326637393638363832366665
+          32666665386637393963663165643465323930663836356531313030363865313736663863643330
+          3132656632323936610a623930323662393031396530613930623631386466373532323036626234
+          6230
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
+
+  tasks:
+    - name: install nginx
+      package:
+        name: nginx
+        state: latest
+      become: yes # noqa package-latest
+
+    - name: copy index.html
+      copy:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+      become: yes # noqa risky-file-permissions
+
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
+      become: yes

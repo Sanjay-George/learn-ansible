@@ -1,12 +1,10 @@
 ---
 - hosts: localhost
   connection: local
-
   vars_prompt:
     - name: id
       prompt: "Enter VM ID (1 - 100)"
       private: no
-
   vars:
     password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
@@ -79,11 +77,13 @@
       azure_rm_virtualmachine:
         resource_group: ansible
         name: "vm-linuxweb{{ count }}"
-        vm_size: Standard_B1s
+        vm_size: Standard_B1ms
         admin_username: ansible
         admin_password: "{{ password }}"
         ssh_password_enabled: true
         network_interfaces: "nic-linux-{{ count }}"
+        tags: 
+          id: "{{ count }}"
         image:
           offer: CentOS
           publisher: OpenLogic

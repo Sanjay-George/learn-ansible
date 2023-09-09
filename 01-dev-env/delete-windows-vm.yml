@@ -3,8 +3,6 @@
   connection: local
 
   tasks:
-
-
     - set_fact:
         count: "100"
       run_once: yes
@@ -51,13 +49,3 @@
         resource_group: ansible
         name: vnet-winweb
         state: absent
-
-
-
-
-
-          
-
-
-
-  

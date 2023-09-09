@@ -1,0 +1,5 @@
+- name: 'Configure Linux web server'
+  import_playbook: configure_web_server.yml
+
+- name: 'Configure Linux database server'
+  import_playbook: configure_db_server.yml
