@@ -1,2 +1,16 @@
 exclude_paths:
   - 01-dev-env/
+
+use_default_rules: true
+
+skip_list:
+  - yaml[trailing-spaces]
+  - yaml[indentation]
+  - yaml[truthy]
+  - yaml[new-line-at-end-of-file]
+  - name[play]
+  - name[casing]
+  - fqcn[action-core]      
+
+
+
