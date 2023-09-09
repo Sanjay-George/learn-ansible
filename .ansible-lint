@@ -8,6 +8,7 @@ skip_list:
   - yaml[indentation]
   - yaml[truthy]
   - yaml[new-line-at-end-of-file]
+  - yaml[empty-lines]
   - name[play]
   - name[casing]
   - fqcn[action-core]      
