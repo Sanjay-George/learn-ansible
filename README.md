@@ -1,4 +1,6 @@
-# learn-ansible
+# learn-ansible 
+[![Ansible Lint](https://github.com/Sanjay-George/learn-ansible/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/Sanjay-George/learn-ansible/actions/workflows/ansible-lint.yml)
+
 The repo is just for learning and practicing ansible and how it can be leveraged to work with Azure. 
 
 The docker file builds an image with ansible and necessary packages, along with the azure module for ansible. 

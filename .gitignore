@@ -1,1 +1,6 @@
 commands.txt
+.vscode/
+
+02-remote-hosts/
+03-inventories/
+04-reusable-configs/
