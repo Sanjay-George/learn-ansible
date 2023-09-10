@@ -1,4 +1,4 @@
-FROM sanjaygeorge16/ansible-azure:1.1
+FROM sanjaygeorge16/ansible-azure:1.2
 
 COPY ./entrypoint.sh /entrypoint.sh
 
