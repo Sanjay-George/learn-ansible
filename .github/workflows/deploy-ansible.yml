@@ -1,0 +1,16 @@
+name: Deploy Ansible
+
+on: 
+    push:
+        branches:
+            - master
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Deploy Ansible
+              uses: ./.github/actions/ansible
