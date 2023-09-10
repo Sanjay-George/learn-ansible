@@ -7,11 +7,12 @@ ENV LC_ALL=C.UTF-8
 RUN apt-get update; \
     apt install -y openssh-client; \
     apt install -y wget curl apt-transport-https; \
-    apt install libssl-dev openssl wget build-essential zlib1g-dev -y \
-    curl -sL https://aka.ms/InstallAzureCLIDeb | bash; \
+    apt install libssl-dev openssl wget build-essential zlib1g-dev -y; \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone; \
     apt-get -y install build-essential checkinstall; \
     apt-get -y install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev;
+
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash;
     
 RUN cd /usr/src; \
     wget https://www.python.org/ftp/python/3.6.10/Python-3.6.10.tgz;
@@ -26,3 +27,4 @@ RUN pip3 install --upgrade pip; \
     pip3 install "ansible==2.9.12"; \
     pip3 install ansible-lint; \
     pip3 install ansible[azure]
+
