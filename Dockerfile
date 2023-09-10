@@ -6,6 +6,7 @@ ENV LC_ALL=C.UTF-8
 
 RUN apt-get update; \
     apt install -y openssh-client; \
+    apt install -y sshpass; \
     apt install -y wget curl apt-transport-https; \
     apt install libssl-dev openssl wget build-essential zlib1g-dev -y; \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone; \
