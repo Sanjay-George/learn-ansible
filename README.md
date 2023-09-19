@@ -9,12 +9,14 @@ The repo is just for learning and practicing ansible and how it can be leveraged
 * GitHub actions to Lint and deploy Ansible code
 * Integrate with Azure Ansible module to deploy VMs
 
+### Triggering Ansible playbook(s) with GitHub Action and triggers
+![image](https://github.com/Sanjay-George/learn-ansible/assets/10389062/341b6e9e-5a23-4aee-8f22-f125c7c88850)
+
 ## Dockerfile
 The docker file builds an image with ansible and necessary packages, along with the azure module for ansible. 
 - Python 3.6.10  (Do not use versions ≥ 3.8, since it causes an issue with ansible azure module which uses time.clock() method)
 - Ansible 2.9.12
 - ansible[azure]
-
 
 ## Tools
 * Docker
